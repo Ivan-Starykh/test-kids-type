@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профессия для ребенка</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Кем будет Ваш ребенок? Пройдите тест и узнайте, какую профессию выбрать Вашему ребенку (ВНИМАНИЕ! На вопросы отвечает ребенок, родитель лишь присутствует рядом)</h1>
+        <form id="contact-form" method="POST" action="/send-email">
+            <label for="name">ФИО ребенка:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="age">Возраст ребенка и класс в школе:</label>
+            <input type="text" id="age" name="age" required>
+
+						<label for="parentName">ФИО родителя:</label>
+            <input type="text" id="parentName" name="parentName" required>
+
+            <!-- Questions 1 to 20 with radio buttons -->
+            <label>1. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option1a" name="question1" value="1a" required>
+                <label for="option1a">1a Ухаживать за животными</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option1b" name="question1" value="1b" required>
+                <label for="option1b">1б Обслуживать машины</label>
+            </div>
+
+            <label>2. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option2a" name="question2" value="2a" required>
+                <label for="option2a">2a Помогать больным</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option2b" name="question2" value="2b" required>
+                <label for="option2b">2б Составлять таблицы</label>
+            </div>
+
+            <label>3. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option3a" name="question3" value="3a" required>
+                <label for="option3a">3a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option3b" name="question3" value="3b" required>
+                <label for="option3b">3б Вариант 2</label>
+            </div>
+
+            <label>4. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option4a" name="question4" value="4a" required>
+                <label for="option4a">4a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option4b" name="question4" value="4b" required>
+                <label for="option4b">4б Вариант 2</label>
+            </div>
+
+            <label>5. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option5a" name="question5" value="5a" required>
+                <label for="option5a">5a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option5b" name="question5" value="5b" required>
+                <label for="option5b">5б Вариант 2</label>
+            </div>
+
+            <label>6. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option6a" name="question6" value="6a" required>
+                <label for="option6a">6a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option6b" name="question6" value="6b" required>
+                <label for="option6b">6б Вариант 2</label>
+            </div>
+
+            <label>7. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option7a" name="question7" value="7a" required>
+                <label for="option7a">7a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option7b" name="question7" value="7b" required>
+                <label for="option7b">7б Вариант 2</label>
+            </div>
+
+            <label>8. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option8a" name="question8" value="8a" required>
+                <label for="option8a">8a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option8b" name="question8" value="8b" required>
+                <label for="option8b">8б Вариант 2</label>
+            </div>
+
+            <label>9. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option9a" name="question9" value="9a" required>
+                <label for="option9a">9a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option9b" name="question9" value="9b" required>
+                <label for="option9b">9б Вариант 2</label>
+            </div>
+
+            <label>10. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option10a" name="question10" value="10a" required>
+                <label for="option10a">10a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option10b" name="question10" value="10b" required>
+                <label for="option10b">10б Вариант 2</label>
+            </div>
+
+            <label>11. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option11a" name="question11" value="11a" required>
+                <label for="option11a">11a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option11b" name="question11" value="11b" required>
+                <label for="option11b">11б Вариант 2</label>
+            </div>
+
+            <label>12. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option12a" name="question12" value="12a" required>
+                <label for="option12a">12a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option12b" name="question12" value="12b" required>
+                <label for="option12b">12б Вариант 2</label>
+            </div>
+
+            <label>13. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option13a" name="question13" value="13a" required>
+                <label for="option13a">13a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option13b" name="question13" value="13b" required>
+                <label for="option13b">13б Вариант 2</label>
+            </div>
+
+            <label>14. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option14a" name="question14" value="14a" required>
+                <label for="option14a">14a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option14b" name="question14" value="14b" required>
+                <label for="option14b">14б Вариант 2</label>
+            </div>
+
+            <label>15. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option15a" name="question15" value="15a" required>
+                <label for="option15a">15a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option15b" name="question15" value="15b" required>
+                <label for="option15b">15б Вариант 2</label>
+            </div>
+
+            <label>16. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option16a" name="question16" value="16a" required>
+                <label for="option16a">16a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option16b" name="question16" value="16b" required>
+                <label for="option16b">16б Вариант 2</label>
+            </div>
+
+            <label>17. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option17a" name="question17" value="17a" required>
+                <label for="option17a">17a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option17b" name="question17" value="17b" required>
+                <label for="option17b">17б Вариант 2</label>
+            </div>
+
+            <label>18. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option18a" name="question18" value="18a" required>
+                <label for="option18a">18a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option18b" name="question18" value="18b" required>
+                <label for="option18b">18б Вариант 2</label>
+            </div>
+
+            <label>19. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option19a" name="question19" value="19a" required>
+                <label for="option19a">19a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option19b" name="question19" value="19b" required>
+                <label for="option19b">19б Вариант 2</label>
+            </div>
+
+            <label>20. Предположим, что после соответствующего обучения ты сможешь выполнить любую работу. Но тебе нужно выбирать только из двух вариантов. Что ты выберешь?</label>
+            <div class="radio-group">
+                <input type="radio" id="option20a" name="question20" value="20a" required>
+                <label for="option20a">20a Вариант 1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="option20b" name="question20" value="20b" required>
+                <label for="option20b">20б Вариант 2</label>
+            </div>
+
+						<label for="phone">Номер телефона родителя для обратной связи с результатами теста:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="city">Из какого Вы города:</label>
+            <input type="text" id="city" name="city" required>
+
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+</body>
+</html>
