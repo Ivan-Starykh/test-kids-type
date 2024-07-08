@@ -1,13 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
-const mailjet = require('node-mailjet');
+const formData = require('form-data');
+const Mailgun = require('mailgun.js');
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-const mailjetClient = mailjet.connect(process.env.MJ_APIKEY_PUBLIC, process.env.MJ_APIKEY_PRIVATE);
+const mailgun = new Mailgun(formData);
+const mg = mailgun.client({ username: 'api', key: process.env.MAILGUN_API_KEY });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -36,6 +38,8 @@ app.post('/send-email', (req, res) => {
         'Человек-художественный образ': 0
     };
 
+    console.log('Выбранные ответы:', formData);
+
     Object.entries(formData).forEach(([question, answer]) => {
         Object.entries(keys).forEach(([type, answers]) => {
             if (answers.includes(answer)) {
@@ -44,7 +48,9 @@ app.post('/send-email', (req, res) => {
         });
     });
 
-    const maxType = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+    console.log('Подсчет баллов:', scores);
+
+    const maxType = Object.keys(scores).reduce((a, b) => (scores[a] > scores[b] ? a : b));
 
     const interpretation = {
         'Человек-природа': 'все профессии, связанные с растениеводством, животноводством и лесным хозяйством;',
@@ -61,36 +67,29 @@ app.post('/send-email', (req, res) => {
         Телефон: ${formData.phone}
         Город: ${formData.city}
 
+        Выбранные ответы: ${JSON.stringify(formData)}
+        Подсчет баллов: ${JSON.stringify(scores)}
+
         Рекомендуемый тип профессии: ${maxType}
         ${interpretation[maxType]}
     `;
 
-    const request = mailjetClient.post('send', { version: 'v3.1' }).request({
-        Messages: [
-            {
-                From: {
-                    Email: 'your-email@example.com',
-                    Name: 'Test Results'
-                },
-                To: [
-                    {
-                        Email: process.env.MAILJET_RECIPIENT,
-                        Name: 'Recipient'
-                    }
-                ],
-                Subject: 'Новые результаты теста профессии',
-                TextPart: resultMessage
-            }
-        ]
-    });
+    const data = {
+        from: `Test Results <mailgun@${process.env.MAILGUN_DOMAIN}>`,
+        to: process.env.MAILGUN_RECIPIENT,
+        subject: 'Новые результаты теста профессии',
+        text: resultMessage
+    };
 
-    request.then((result) => {
-        console.log(result.body);
-        res.status(200).json({ status: 'success' });
-    }).catch((err) => {
-        console.error(err.statusCode);
-        res.status(500).json({ status: 'error', message: err.message });
-    });
+    mg.messages.create(process.env.MAILGUN_DOMAIN, data)
+        .then(msg => {
+            console.log('Email sent successfully:', msg);
+            res.status(200).json({ status: 'success' });
+        })
+        .catch(err => {
+            console.error('Error sending email:', err);
+            res.status(500).json({ status: 'error', message: err.message });
+        });
 });
 
 app.listen(PORT, () => {
