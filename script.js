@@ -61,9 +61,10 @@ const url = 'https://script.google.com/macros/s/AKfycbzcaok8sZovW-7lxMkfHes0PIec
 fetch(url, {
   method: 'POST',
   headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
+    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
   },
-  body: new URLSearchParams(formData) // предполагается, что formData — это объект с данными формы
+	mode: "cors",
+  body: formData // предполагается, что formData — это объект с данными формы
 })
 .then(response => response.json())
 .then(data => console.log('Success:', data))
